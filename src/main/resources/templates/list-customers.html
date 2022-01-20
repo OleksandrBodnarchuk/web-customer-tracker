@@ -8,16 +8,35 @@
 </head>
 <body>
 
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">CRM</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/customer}">Customers</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container">
     <div class="row">
         <h1>Customers</h1>
     </div>
-    <!--    ADD BUTTON-->
-    <div class="row">
-       <div class="col-lg-3">
-        <a th:href="@{/customer/new}" class="btn btn-outline-primary btn-sm mb3">Add Customer</a>
-       </div>
-    </div>
+        <!--    ADD BUTTON-->
+        <div class="row">
+            <div class="col-lg-3">
+                <a th:href="@{/customer/new}" class="btn btn-outline-primary">Add Customer</a>
+            </div><br>
+        </div>
     <!--    CLIENTS TABLE-->
     <table class="table table-striped table-dark">
         <thead>
@@ -33,6 +52,10 @@
             <td th:text="${customer.firstName}"></td>
             <td th:text="${customer.lastName}"></td>
             <td th:text="${customer.email}"></td>
+            <td><a th:href="@{/customer/update/{id}(id=${customer.id})}" class="btn btn-outline-warning btn-sm">Update Customer</a>
+                <a th:href="@{/customer/delete/{id}(id=${customer.id})}" class="btn btn-outline-danger btn-sm">Delete Customer</a>
+            </td>
+
         </tr>
         </tbody>
     </table>
