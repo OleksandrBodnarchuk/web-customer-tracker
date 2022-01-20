@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.alex.entity.Customer;
 import pl.alex.service.CustomerService;
@@ -17,7 +19,7 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-    @GetMapping("/list")
+    @GetMapping("")
     public String listCustomers(Model model) {
         List<Customer> customers = customerService.getAllStudents();
         model.addAttribute("customers", customers);
@@ -26,7 +28,13 @@ public class CustomerController {
 
     @GetMapping("/new")
     public String addCustomer(Model model) {
-        model.addAttribute("newCustomer", new Customer());
+        model.addAttribute("customer", new Customer());
         return "add-customer";
+    }
+
+    @PostMapping("")
+    public String saveStudent(@ModelAttribute("customer") Customer customer){
+        customerService.save(customer);
+        return "redirect:/customer";
     }
 }
