@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>List Customers</title>
+    <!-- reference our style sheet -->
+    <link type="text/css" href="/static/style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="wrapper">
+    <div id="header">
+        <h2>CRM - Customer Relationship Manager</h2>
+    </div>
+</div>
+
+<div id="container">
+
+    <div id="content">
+
+        <!--  add our html table here -->
+
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+
+            <!-- loop over and print our customers -->
+
+            <tr th:each="tempCustomer:${customers}">
+                <td th:text="${tempCustomer.firstName}"></td>
+                <td th:text="${tempCustomer.lastName}"></td>
+                <td th:text="${tempCustomer.email}"></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+</body>
+</html>
