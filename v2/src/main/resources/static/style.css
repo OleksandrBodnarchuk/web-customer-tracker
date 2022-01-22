@@ -40,8 +40,35 @@ tr:nth-child(odd) {background: #BBBBBB}
 	font-size: 12px;
 	font-weight: bold;
 	width: 120px; 
-	padding: 5px 10px; 
-	
+	padding: 5px 10px;
+	color: white;
 	margin-bottom: 15px;
-	background: #cccccc;
+	background-color: seagreen;
+}
+
+.update-button {
+	border: 1px solid #666;
+	border-radius: 5px;
+	padding: 4px;
+	font-size: 12px;
+	font-weight: bold;
+	width: 120px;
+	padding: 5px 10px;
+	color: white;
+	margin-bottom: 15px;
+	background-color: mediumblue;
+}
+
+
+.delete-button {
+	border: 1px solid #666;
+	border-radius: 5px;
+	padding: 4px;
+	font-size: 12px;
+	font-weight: bold;
+	width: 120px;
+	padding: 5px 10px;
+	color: white;
+	margin-bottom: 15px;
+	background-color: red;
 }

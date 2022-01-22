@@ -10,4 +10,8 @@ public interface CustomerService {
     List<Customer> getCustomers();
 
     void saveCustomer(Customer customer);
+
+    Customer findCustomerById(long id);
+
+    void deleteCustomer(Customer customer);
 }
