@@ -8,4 +8,6 @@ import java.util.List;
 @Service
 public interface CustomerService {
     List<Customer> getCustomers();
+
+    void saveCustomer(Customer customer);
 }
