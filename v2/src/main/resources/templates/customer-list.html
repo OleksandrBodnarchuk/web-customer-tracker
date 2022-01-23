@@ -24,7 +24,7 @@
 
 <div id="wrapper">
     <div id="header">
-        <h2>CRM - Customer Relationship Manager</h2>
+        <h2><a onclick="window.location.href='/customer'"> CRM - Customer Relationship Manager</a></h2>
     </div>
 </div>
 <div id="container">
@@ -32,6 +32,12 @@
     <div>
         <button type="button" onclick="window.location.href='/customer/add'" class="add-button">Add Customer
         </button>
+        <form th:action="@{/customer/search}" method="get">
+            <label>
+                <input type="text" th:name="searchName" placeholder="Search Customer"/>
+            </label>
+            <button type="submit" class="add-button">Search</button>
+        </form>
     </div>
     <div id="content">
         <!--  add our html table here -->
@@ -53,7 +59,7 @@
                     </a>
                     <!-- Button trigger modal -->
                     <a type="button" class="delete-button" th:href="@{/customer/delete/{id}(id=${tempCustomer.id})}">
-<!--                       data-toggle="modal" data-target="#exampleModal">-->
+                        <!--                       data-toggle="modal" data-target="#exampleModal">-->
                         Delete customer
                     </a>
 

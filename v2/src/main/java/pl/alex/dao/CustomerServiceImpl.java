@@ -30,4 +30,9 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteCustomer(Customer customer) {
         repository.delete(customer);
     }
+
+    @Override
+    public List<Customer> getCustomersByName(String name) {
+        return repository.getBySearchedName(name);
+    }
 }

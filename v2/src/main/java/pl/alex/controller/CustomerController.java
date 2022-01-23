@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import pl.alex.dao.CustomerService;
 import pl.alex.entity.Customer;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/customer")
 @RequiredArgsConstructor
@@ -49,5 +51,12 @@ public class CustomerController {
     @GetMapping("/ok")
     public String ok() {
         return "deleteModal";
+    }
+
+    @GetMapping("/search")
+    public String searchCustomer(@RequestParam("searchName")String name,Model model){
+        List<Customer> customers = service.getCustomersByName(name);
+        model.addAttribute("customers",customers );
+        return "customer-list";
     }
 }
